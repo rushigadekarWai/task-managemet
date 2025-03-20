@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- External CSS -->
+    <!-- <link href="../CSS/style.css" rel="stylesheet"> -->
+    <link href="../CSS/DEMO.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+
+    
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link" href="#">My Tasks</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Track Tasks</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">All Tasks</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Form View</a></li>
+            </ul>
+        </div>
+    </nav>
+
+   
+    <div class="sidebar">
+        <a href="../index.html"><i class="bi bi-house-door"></i></a>
+        <a href="#"><i class="bi bi-card-checklist"></i></a>
+        <a href="#"><i class="bi bi-people"></i></a>
+        <a href="#"><i class="bi bi-database"></i></a>
+        <a href="#"><i class="bi bi-person-circle"></i></a>
+        <a href="#"><i class="bi bi-gear"></i></a>
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="container-fluid main-content">
+        <!-- Content Section -->
+        <div class="content">
+            <!-- Flex container for Left Side and Right Side (Buttons) -->
+            <div class="d-flex justify-content-between align-items-center">
+
+                <div class="d-flex gap-2">
+                    <button class="btn btn-primary">Tool 1</button>
+                    <button class="btn btn-secondary">Open 2</button>
+                    <button class="btn btn-success">Completed</button>
+                </div>
+
+
+                <div class="d-flex gap-2">
+                    <!-- Add Task Button -->
+                    <a href="demo-add-task.html" class="btn btn-primary mt-1">Add Task</a>
+
+                    <!-- Task List Button with Icon -->
+                    <button class="btn btn-icon btn-outline-dark mt-1">
+                        <i class="bi bi-list-task"></i> <!-- Improved icon for Task List -->
+                    </button>
+                </div>
+
+            </div>
+
+
+
+
+            <!-- Task Management Table -->
+        
+
+            <!-- <div class="task-box mt-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Task Details</th>
+                                <th>Assigned To</th>
+                                <th>Actions</th> 
+                            </tr>
+                        </thead>
+                        <tbody id="taskTableBody">
+                           
+                            <tr>
+                               
+                                <td>
+                                  <div class="task-details">
+                                    <input type="checkbox" class="task-checkbox me-3">
+                                    <img src="../ASSESTS/profile.png" alt="Profile" class="task-profile-img">
+                                    <div>
+                                      <h6 class="task-name mb-0">Sample Default Task</h6>
+                                      <span class="task-assignee">Unassigned</span>
+                                    </div>
+                                    <div class="task-time">
+                                      <span>Today</span>
+                                    </div>
+                                  </div>
+                                </td>
+                                
+                               
+                                <td class="text-center">
+                                  <img src="../ASSESTS/profile.png" alt="Assigned to Default" class="rounded-circle task-profile-img">
+                                </td>
+                                
+                               
+                                <td class="text-center">
+                                  <div class="task-actions">
+                                    <button class="btn btn-warning btn-sm edit-btn">Edit</button>
+                                    <button class="btn btn-info btn-sm view-btn">View</button>
+                                    <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+                                  </div>
+                                </td>
+                              </tr>
+                              
+                              
+                        </tbody>
+                    </table>    
+                </div>
+            </div> -->
+
+            <div class="task-box mt-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <!-- <thead class="thead-dark">
+                            <tr>
+                                <th>Task Details</th>
+                                <th>Status</th>
+                                <th>Due Date</th>
+                                <th>Assigned To</th>
+                                <th>Actions</th> 
+                            </tr>
+                        </thead>
+                        <tbody id="taskTableBody"></tbody> -->
+                        <thead>
+                            <tr>
+                              <th>Task Name</th>
+                              <th>Assigned To</th>
+                              <th>Due Date</th>
+                              <th>Status</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody id="taskTableBody">
+                            <!-- Tasks will be dynamically added here -->
+                          </tbody>
+
+                    </table>    
+                </div>
+            </div>
+            
+            
+            
+            
+
+                <!--  -->
+            
+
+                <!-- Edit Task Modal -->
+
+
+
+                <!-- Edit Task Modal -->
+                <!-- Edit Task Modal -->
+<div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editTaskModalLabel">Edit Task</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editTaskForm">
+            <div class="mb-3">
+              <label for="editTaskOwner" class="form-label">Owner</label>
+              <input type="text" class="form-control" id="editTaskOwner">
+            </div>
+            <div class="mb-3">
+              <label for="editTaskName" class="form-label">Task Name</label>
+              <input type="text" class="form-control" id="editTaskName">
+            </div>
+            <div class="mb-3">
+              <label for="editTaskDescription" class="form-label">Description</label>
+              <input type="text" class="form-control" id="editTaskDescription">
+            </div>
+            <div class="mb-3">
+              <label for="editTaskStartDate" class="form-label">Start Date</label>
+              <input type="date" class="form-control" id="editTaskStartDate">
+            </div>
+            <div class="mb-3">
+              <label for="editTaskDueDate" class="form-label">Due Date</label>
+              <input type="date" class="form-control" id="editTaskDueDate">
+            </div>
+            <div class="mb-3">
+              <label for="editTaskReminder" class="form-label">Reminder</label>
+              <input type="datetime-local" class="form-control" id="editTaskReminder">
+            </div>
+            <div class="mb-3">
+              <label for="editTaskAssignedTo" class="form-label">Assigned To</label>
+              <input type="text" class="form-control" id="editTaskAssignedTo">
+            </div>
+            <div class="mb-3">
+              <label for="editTaskPriority" class="form-label">Priority</label>
+              <select class="form-control" id="editTaskPriority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="editTaskStatus" class="form-label">Status</label>
+              <select class="form-control" id="editTaskStatus">
+                <option value="Open">Open</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="saveEditTaskBtn">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+                
+                
+<!-- <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editTaskModalLabel">Edit Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editTaskForm">
+                    <div class="mb-3">
+                        <label for="editTaskOwner" class="form-label">Task Owner</label>
+                        <input type="text" class="form-control" id="editTaskOwner" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTaskName" class="form-label">Task Name</label>
+                        <input type="text" class="form-control" id="editTaskName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTaskDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="editTaskDescription" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTaskStartDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="editTaskStartDate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTaskDueDate" class="form-label">Due Date</label>
+                        <input type="date" class="form-control" id="editTaskDueDate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTaskReminder" class="form-label">Reminder</label>
+                        <input type="datetime-local" class="form-control" id="editTaskReminder">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTaskAssignedTo" class="form-label">Assigned To</label>
+                        <input type="text" class="form-control" id="editTaskAssignedTo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTaskPriority" class="form-label">Priority</label>
+                        <select class="form-select" id="editTaskPriority" required>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTaskStatus" class="form-label">Status</label>
+                        <select class="form-select" id="editTaskStatus" required>
+                            <option value="Open">Open</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="saveEditTaskBtn" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+  <!-- model for  view  -->
+
+  <!-- Modal for Viewing Task Details -->
+<div class="modal fade" id="viewTaskModal" tabindex="-1" aria-labelledby="viewTaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="viewTaskModalLabel">Task Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="task-details">
+            <p><strong>Task Name:</strong> <span id="viewTaskName"></span></p>
+            <p><strong>Description:</strong> <span id="viewTaskDescription"></span></p>
+            <p><strong>Start Date:</strong> <span id="viewTaskStartDate"></span></p>
+            <p><strong>Due Date:</strong> <span id="viewTaskDueDate"></span></p>
+            <p><strong>Reminder:</strong> <span id="viewTaskReminder"></span></p>
+            <p><strong>Assigned To:</strong> <span id="viewTaskAssignedTo"></span></p>
+            <p><strong>Priority:</strong> <span id="viewTaskPriority"></span></p>
+            <p><strong>Status:</strong> <span id="viewTaskStatus"></span></p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+                
+                
+                
+                
+            
+            
+            
+
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+ 
+   <!-- <script src="../SCRIPTS/demo.js"></script> -->
+
+   <script src="../SCRIPTS/new.js"></script>
+
+
+    
+</body>
+
+</html>

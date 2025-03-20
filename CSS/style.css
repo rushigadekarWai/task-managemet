@@ -1,0 +1,291 @@
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 60px);
+  height: 60px;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+}
+
+/* Main content padding to avoid overlap with navbar */
+.main-content {
+  margin-top: 56px; /* Navbar height */
+  width: calc(100% - 60px); /* Subtract the width of the sidebar */
+  margin-left: 0; /* Ensure no left margin */
+  padding-right: 15px; /* Right padding */
+  padding-left: 15px; /* Left padding */
+  padding-bottom: 30px; /* Ensure bottom padding */
+  padding-top: 25px; /* Slight top padding */
+  background-color: #f8f9fa; /* Light background for the main content */
+  border-radius: 8px; /* Rounded corners for the content */
+ 
+}
+
+/* Right sidebar styles */
+.sidebar {
+  width: 60px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #ffffff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.sidebar a:hover {
+  color: #007bff;
+}
+
+/* Content inside the main section */
+.content {
+  padding: 20px; /* Slightly increased padding for more space */
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  height: auto;
+}
+
+/* Horizontal line style */
+.line-horizontal {
+  border-top: 2px solid #343a40;
+  width: 50%;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+/* Vertical line style */
+.line-vertical {
+  border-left: 2px solid #343a40;
+  height: 40px;
+  margin-top: 10px;
+}
+
+/* Flexbox container for arranging lines */
+.line-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Task Management Table Styles */
+.task-box {
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  max-height: 500px; /* Set a max height */
+  overflow-y: auto; /* Enable vertical scroll only if needed */
+  padding: 20px; /* Padding inside the task box */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Table row styling */
+.task-box td,
+.task-box th {
+  vertical-align: middle;
+  padding: 18px; /* Slightly more padding in rows */
+}
+
+/* Aligning the table and content side by side */
+.task-content-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Styling for the task management table */
+.task-box .table {
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Rounded corners for table */
+  overflow: hidden;
+  background-color: #fafafa; /* Light background for the table */
+}
+
+/* Styling for task details (checkbox, image, task name) */
+.task-details {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Adds space between elements */
+  padding: 10px 0; /* Vertical padding for task details */
+}
+
+.task-details img {
+  width: 50px; /* Adjust image size */
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #ddd; /* Subtle border around the profile image */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.task-details img:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+.task-details input[type="checkbox"] {
+  transform: scale(1.5); /* Enlarges the checkbox */
+  margin-right: 10px;
+}
+
+.task-details .task-name {
+  font-weight: 600;
+  font-size: 1.2em; /* Slightly increased font size for task name */
+  margin-bottom: 0;
+}
+
+.task-details .task-assignee {
+  color: #6c757d;
+  font-size: 1em; /* Slightly increase font size */
+}
+
+.task-details .task-time {
+  color: #6c757d;
+  font-size: 0.9em;
+  margin-top: 5px;
+  flex-grow: 1; /* Ensures the 'Today' label stays aligned */
+  text-align: right; /* Aligns the 'Today' label to the right side */
+}
+
+/* Hover effect for task row */
+.task-box tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.task-box tbody tr td {
+  transition: background-color 0.3s ease;
+}
+
+.task-box tbody tr td:hover {
+  background-color: #f1f1f1;
+}
+
+/* Button styles */
+.btn-custom {
+  /* padding: 10px 10px; */
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-custom:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+/* Additional styles */
+.table th {
+  background-color: #f8f9fa;
+  color: #343a40;
+  font-weight: 600;
+  text-align: left;
+  padding: 15px; /* More padding in header cells */
+}
+
+
+
+/* EDIT AND DELETE  CODE ---------------------------------------------- */
+/* Hide edit and delete buttons by default--------------------------------------------- */
+/* Initially hide edit & delete buttons */
+/* Ensure task details column and actions column are aligned properly */
+/* Task Details - Align properly */
+/* Actions Column */
+/* Actions Column */
+.task-actions {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 10px; /* Reduced gap to make space for one more button */
+  align-items: center; /* Ensure buttons are aligned vertically */
+  padding-left: 15px; /* Padding for spacing on the left */
+  padding-right: 15px; /* Padding for spacing on the right */
+}
+
+/* Action Button Styles */
+.task-actions button {
+  padding: 8px 12px; /* Reduced padding for smaller buttons */
+  border-radius: 5px; /* Reduced border radius */
+  font-weight: bold;
+  font-size: 13px; /* Slightly smaller font size */
+  text-transform: uppercase; /* Uppercase text */
+  border: none;
+  cursor: pointer; /* Add pointer cursor for better UX */
+  min-width: 90px; /* Reduced width slightly */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Smaller shadow for subtle effect */
+}
+
+/* Edit Button */
+.edit-btn {
+  background-color: #ffc107; /* Yellow */
+  color: black;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
+
+/* Action Button Container */
+.task-actions {
+  /* Removed the left border */
+  padding-left: 15px; /* Optional: Adds space on the left */
+  padding-right: 15px; /* Optional: Adds space on the right */
+}
+/* Style for disabled buttons */
+
+
+/* Responsive Styles: Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .task-actions {
+    flex-direction: column; /* Stack the buttons vertically on smaller screens */
+    gap: 10px; /* Reduce gap on small screens */
+  }
+
+  .task-actions button {
+    min-width: unset; /* Remove the minimum width for smaller buttons */
+    width: 100%; /* Make buttons full width for mobile screens */
+  }
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0; /* Remove sidebar margin on small screens */
+    padding: 10px;
+  }
+
+  .sidenav {
+    width: 0; /* Hide sidebar on small screens */
+    padding-top: 0;
+  }
+
+  /* Show sidebar when toggle is clicked (use JavaScript to toggle this) */
+  .sidenav.show {
+    width: 250px; /* Adjust width when sidebar is open */
+  }
+
+  .main-content {
+    margin-top: 70px; /* Adjust for smaller screen spacing */
+  }
+}
